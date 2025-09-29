@@ -5,32 +5,62 @@
   "height": 600,
   "projection": {"type": "mercator"},
   
+  "params": [
+  {
+    "name": "TimeIndex",
+    "value": 0,
+    "bind": {
+      "input": "range",
+      "min": 1,
+      "max": 198,
+      "step": 1,
+      "name": "Month-Year: "
+    } 
+  }
+  ],
+
+
+
   "layer": [
     {
       "data": {
-        "url": "AUS_2016_AUST.json",
+        "url": "Australia_Topo.json",
         "format": {"type": "topojson", "feature": "AUS_2016_AUST"}
     },
       "mark": {"type": "geoshape","fill": "lightgray","stroke": "white"}
       },
     {
-      "data": {
-        "url": "au-major-airports.csv"
-      },
-      "mark": {
-        "type": "circle",
-        "color": "red",
-        "size": 100
-      },
-      "encoding": {
-        "longitude": { "field": "longitude_deg", "type": "quantitative" },
-        "latitude": { "field": "latitude_deg", "type": "quantitative" },
-        "tooltip": {
-          "field": "name",
-          "type": "nominal"
-        }
-      }
+  "data": {
+  "url": "airport_traffic.csv"
+},
+"transform": [
+  { "filter": "datum.Time_Index == TimeIndex" },
+  {
+    "lookup": "IATA_CODE",
+    "from": {
+      "data": { "url": "au-major-airports.csv" },
+      "key": "iata_code",
+      "fields": ["longitude_deg", "latitude_deg", "name"]
     }
+  }
+],
+"mark": { "type": "circle", "color": "red" },
+"encoding": {
+  "longitude": { "field": "longitude_deg", "type": "quantitative" },
+  "latitude": { "field": "latitude_deg", "type": "quantitative" },
+  "size": {
+    "field": "TOTAL",
+    "type": "quantitative",
+    "scale": { "domain": [0, 3000000],"range": [50, 500] }
+  },
+  "tooltip": [
+    { "field": "name", "type": "nominal" },
+    { "field": "TOTAL", "type": "quantitative", "title": "Passengers" },
+    { "field": "Year", "type": "ordinal" },
+    { "field": "Month", "type": "ordinal" }
+  ]
+}
+}
     ]
     }
     
