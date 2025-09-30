@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Australia Map with Local JSON Data",
+  "title": "Australia Major Aiport Traffic (Domestic Inbound & Outbound)",
   "width": 800,
   "height": 600,
   "projection": {"type": "mercator"},
@@ -8,7 +8,7 @@
   "params": [
   {
     "name": "TimeIndex",
-    "value": 0,
+    "value": 1,
     "bind": {
       "input": "range",
       "min": 1,
@@ -42,6 +42,10 @@
       "key": "iata_code",
       "fields": ["longitude_deg", "latitude_deg", "name"]
     }
+  },
+  {
+  "calculate": "timeFormat(datetime(datum.Year, datum.Month - 1, 1), '%b %Y')",
+  "as": "MonthLabel"
   }
 ],
 "mark": { "type": "circle", "color": "red" },
@@ -49,17 +53,40 @@
   "longitude": { "field": "longitude_deg", "type": "quantitative" },
   "latitude": { "field": "latitude_deg", "type": "quantitative" },
   "size": {
-    "field": "TOTAL",
+    "field": "TOTAL_DOM",
     "type": "quantitative",
-    "scale": { "domain": [0, 3000000],"range": [50, 500] }
+    "scale": { "domain": [0, 2000000],"range": [50, 1000] }
   },
   "tooltip": [
     { "field": "name", "type": "nominal" },
-    { "field": "TOTAL", "type": "quantitative", "title": "Passengers" },
+    { "field": "TOTAL_DOM", "type": "quantitative", "title": "Passengers" },
     { "field": "Year", "type": "ordinal" },
     { "field": "Month", "type": "ordinal" }
   ]
 }
+},
+{
+  "data": {
+    "url": "airport_traffic.csv"
+  },
+  "transform": [
+    { "filter": "datum.Time_Index == TimeIndex" },
+    {
+      "calculate": "timeFormat(datetime(datum.Year, datum.Month - 1, 1), '%b %Y')",
+      "as": "MonthLabel"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "fontSize": 16,
+    "align": "left",
+    "baseline": "top"
+  },
+  "encoding": {
+    "text": { "field": "MonthLabel", "type": "nominal" },
+    "x": { "value": 20 },
+    "y": { "value": 580 }
+  }
 }
     ]
     }
