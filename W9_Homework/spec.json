@@ -24,21 +24,21 @@
   "layer": [
     {
       "data": {
-        "url": "Australia_Topo.json",
+        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/Australia_Topo.json",
         "format": {"type": "topojson", "feature": "AUS_2016_AUST"}
     },
       "mark": {"type": "geoshape","fill": "lightgray","stroke": "white"}
       },
     {
   "data": {
-  "url": "airport_traffic.csv"
+  "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/airport_traffic.csv"
 },
 "transform": [
   { "filter": "datum.Time_Index == TimeIndex" },
   {
     "lookup": "IATA_CODE",
     "from": {
-      "data": { "url": "au-major-airports.csv" },
+      "data": { "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/au-major-airports.csv" },
       "key": "iata_code",
       "fields": ["longitude_deg", "latitude_deg", "name"]
     }
@@ -55,19 +55,23 @@
   "size": {
     "field": "TOTAL_DOM",
     "type": "quantitative",
-    "scale": { "domain": [0, 2000000],"range": [50, 1000] }
+    "scale": { "domain": [0, 2000000],"range": [50, 1000] },
+    "legend": {
+      "title": "Passenger Volume",
+      "format": ".2s"
+    }
   },
   "tooltip": [
-    { "field": "name", "type": "nominal" },
-    { "field": "TOTAL_DOM", "type": "quantitative", "title": "Passengers" },
-    { "field": "Year", "type": "ordinal" },
+    { "field": "name", "type": "nominal", "title": "Airport"},
+    { "field": "TOTAL_DOM", "type": "quantitative", "title": "Passengers","format":".3s"},
+    { "field": "Year", "type": "ordinal"},
     { "field": "Month", "type": "ordinal" }
   ]
 }
 },
 {
   "data": {
-    "url": "airport_traffic.csv"
+    "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/airport_traffic.csv"
   },
   "transform": [
     { "filter": "datum.Time_Index == TimeIndex" },
