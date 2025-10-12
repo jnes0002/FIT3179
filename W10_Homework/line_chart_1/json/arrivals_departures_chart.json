@@ -4,7 +4,7 @@
   "width": 900,
   "height": 500,
   "data": {
-    "url": "../line_chart_1/data/total_arrivals_departures.csv"
+    "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/w10_interactive/W10_Homework/line_chart_1/data/total_arrivals_departures.csv"
   },
   "transform": [
     {
@@ -113,3 +113,4 @@
     }
   ]
 }
+
