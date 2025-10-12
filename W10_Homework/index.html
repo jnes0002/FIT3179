@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FIT3179 Week 10 Interactive Visualisation</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <h2>Total Overseas Arrivals and Departures (July 2015 – August 2025)</h2>
+  <div id="vis"></div>
+
+  <script type="text/javascript">
+    vegaEmbed('#vis', 'json/arrivals_departures_chart.json');
+  </script>
+</body>
+</html>
