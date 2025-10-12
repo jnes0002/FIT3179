@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Interactive line graph showing monthly overseas arrivals and departures in Australia.",
+  "description": "Interactive line graph showing monthly overseas arrivals and departures in Australia with COVID annotation.",
   "width": 900,
   "height": 500,
   "data": {
@@ -72,6 +72,43 @@
           { "field": "Type", "type": "nominal" },
           { "field": "Millions", "type": "quantitative", "title": "Passengers (M)", "format": ".2f" }
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [{ "label": "COVID Begins", "date": "2020-01-01" }]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "black",
+        "strokeDash": [4, 4]
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [{ "label": "COVID Begins", "date": "2020-01-01" }]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -5,
+        "dy": -5,
+        "fontSize": 12,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+        "text": { "field": "label", "type": "nominal" }
       }
     }
   ]
