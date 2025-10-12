@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FIT3179 Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 20px;
+    }
+    .vis-container {
+      padding: 10px;
+    }
+    h2 {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h2>Total Overseas Arrivals and Departures</h2>
+      <div id="vis1" class="vis-container"></div>
+    </div>
+  </div>
+
+  <div class="pure-g">
+    <div class="pure-u-1-1">
+      <h2>Australian Airport Traffic Map</h2>
+      <div id="vis2" class="vis-container"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const specVis1 = "line_chart_1/json/arrivals_departures_chart.json";
+    const specVis2 = "symbol_map_1/json/airport_traffic_map.json";
+
+    vegaEmbed('#vis1', specVis1, { actions: false });
+    vegaEmbed('#vis2', specVis2, { actions: false });
+  </script>
+
+</body>
+</html>
