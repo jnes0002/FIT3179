@@ -1,0 +1,21 @@
+type,name,latitude_deg,longitude_deg,elevation_ft,region_name,iso_region,local_region,municipality,gps_code,icao_code,iata_code
+large_airport,Adelaide International Airport,-34.947512,138.533393,20,South Australia,AU-SA,SA,Adelaide,YPAD,YPAD,ADL
+medium_airport,Ballina Byron Gateway Airport,-28.833236,153.561471,7,New South Wales,AU-NSW,NSW,Ballina,YBNA,YBNA,BNK
+large_airport,Brisbane International Airport,-27.38419914,153.1170044,13,Queensland,AU-QLD,QLD,Brisbane,YBBN,YBBN,BNE
+medium_airport,Cairns International Airport,-16.878921,145.74948,10,Queensland,AU-QLD,QLD,Cairns,YBCS,YBCS,CNS
+medium_airport,Canberra Airport,-35.3069,149.195007,1886,Australian Capital Territory,AU-ACT,ACT,Canberra,YSCB,YSCB,CBR
+large_airport,Darwin International Airport / RAAF Darwin,-12.41497,130.88185,103,Northern Territory,AU-NT,NT,Darwin,YPDN,YPDN,DRW
+medium_airport,Gold Coast Airport,-28.165962,153.506641,21,Queensland,AU-QLD,QLD,Gold Coast,YBCG,YBCG,OOL
+medium_airport,Hamilton Island Airport,-20.35810089,148.9519959,15,Queensland,AU-QLD,QLD,Hamilton Island,YBHM,YBHM,HTI
+medium_airport,Hobart International Airport,-42.8371,147.51295,13,Tasmania,AU-TAS,TAS,Hobart (Cambridge),YMHB,YMHB,HBA
+medium_airport,Karratha Airport,-20.71220016,116.7730026,29,Western Australia,AU-WA,WA,Karratha,YPKA,YPKA,KTA
+medium_airport,Launceston Airport,-41.544935,147.210785,562,Tasmania,AU-TAS,TAS,Launceston (Western Junction),YMLT,YMLT,LST
+medium_airport,Mackay Airport,-21.170816,149.182588,19,Queensland,AU-QLD,QLD,Mackay,YBMK,YBMK,MKY
+large_airport,Melbourne Airport,-37.661548,144.836432,434,Victoria,AU-VIC,VIC,Melbourne,YMML,YMML,MEL
+medium_airport,Newcastle Airport,-32.79499817,151.8339996,31,New South Wales,AU-NSW,NSW,Williamtown,YWLM,YWLM,NTL
+large_airport,Perth International Airport,-31.94029999,115.9670029,67,Western Australia,AU-WA,WA,Perth,YPPH,YPPH,PER
+medium_airport,Proserpine Whitsunday Coast Airport,-20.494416,148.553583,82,Queensland,AU-QLD,QLD,Proserpine,YBPN,YBPN,PPP
+medium_airport,Rockhampton Airport,-23.380019,150.475359,34,Queensland,AU-QLD,QLD,Rockhampton,YBRK,YBRK,ROK
+medium_airport,Sunshine Coast Airport,-26.593324,153.08319,15,Queensland,AU-QLD,QLD,Maroochydore,YBSU,YBSU,MCY
+large_airport,Sydney Kingsford Smith International Airport,-33.946098,151.177002,21,New South Wales,AU-NSW,NSW,Sydney (Mascot),YSSY,YSSY,SYD
+medium_airport,Townsville Airport / RAAF Base Townsville,-19.252904,146.766512,18,Queensland,AU-QLD,QLD,Townsville,YBTL,YBTL,TSV
