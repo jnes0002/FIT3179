@@ -1,0 +1,100 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Australia Major Airport Traffic (Domestic Inbound & Outbound)",
+  "width": 550,
+  "height": 400,
+  "projection": { "type": "mercator" },
+  "params": [
+    {
+      "name": "TimeIndex",
+      "value": 1,
+      "bind": {
+        "input": "range",
+        "min": 1,
+        "max": 198,
+        "step": 1,
+        "name": "Month-Year: "
+      }
+    }
+  ],
+  "layer": [
+
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/symbol_map_1/data/STE_2016_AUST.json",
+        "format": { "type": "topojson", "feature": "STE_2016_AUST" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgrey",
+        "stroke": "black",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/airport_traffic.csv"
+      },
+      "transform": [
+        { "filter": "datum.Time_Index == TimeIndex" },
+        {
+          "lookup": "IATA_CODE",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/au-major-airports.csv"
+            },
+            "key": "iata_code",
+            "fields": ["longitude_deg", "latitude_deg", "name"]
+          }
+        },
+        {
+          "calculate": "timeFormat(datetime(datum.Year, datum.Month - 1, 1), '%b %Y')",
+          "as": "MonthLabel"
+        }
+      ],
+      "mark": { "type": "circle", "color": "red" },
+      "encoding": {
+        "longitude": { "field": "longitude_deg", "type": "quantitative" },
+        "latitude": { "field": "latitude_deg", "type": "quantitative" },
+        "size": {
+          "field": "TOTAL_DOM",
+          "type": "quantitative",
+          "scale": { "domain": [0, 2000000], "range": [50, 1000] },
+          "legend": {
+            "title": "Passenger Volume",
+            "format": ".2s"
+          }
+        },
+        "tooltip": [
+          { "field": "name", "type": "nominal", "title": "Airport" },
+          { "field": "TOTAL_DOM", "type": "quantitative", "title": "Passengers", "format": ".3s" },
+          { "field": "Year", "type": "ordinal" },
+          { "field": "Month", "type": "ordinal" }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/airport_traffic.csv"
+      },
+      "transform": [
+        { "filter": "datum.Time_Index == TimeIndex" },
+        {
+          "calculate": "timeFormat(datetime(datum.Year, datum.Month - 1, 1), '%b %Y')",
+          "as": "MonthLabel"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 16,
+        "align": "left",
+        "baseline": "top"
+      },
+      "encoding": {
+        "text": { "field": "MonthLabel", "type": "nominal" },
+        "x": { "value": 225 },
+        "y": { "value": 380 }
+      }
+    }
+  ]
+}
