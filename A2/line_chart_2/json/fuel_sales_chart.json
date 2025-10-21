@@ -4,7 +4,7 @@
   "width": 550,
   "height": 350,
   "data": {
-    "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/fuel_sales_web.csv"
+    "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/choropleth_map_1/data/fuel_sales_web.csv"
   },
   "transform": [
     {
