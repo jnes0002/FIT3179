@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Short-Term Visitor Arrivals by State (June 2024)",
+  "title": "Short-Term Visitor Arrivals by State (June, 2024)",
   "width": 550,
   "height": 400,
   "projection": { "type": "mercator" },
@@ -47,6 +47,7 @@
     ]
   }
 }
+
 
 
 
