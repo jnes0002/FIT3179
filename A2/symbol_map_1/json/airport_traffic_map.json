@@ -33,7 +33,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/airport_traffic.csv"
+        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/symbol_map_1/data/airport_traffic.csv"
       },
       "transform": [
         { "filter": "datum.Time_Index == TimeIndex" },
@@ -41,7 +41,7 @@
           "lookup": "IATA_CODE",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/au-major-airports.csv"
+              "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/symbol_map_1/data/au-major-airports.csv"
             },
             "key": "iata_code",
             "fields": ["longitude_deg", "latitude_deg", "name"]
@@ -75,7 +75,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/airport_traffic.csv"
+        "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/symbol_map_1/data/airport_traffic.csv"
       },
       "transform": [
         { "filter": "datum.Time_Index == TimeIndex" },
@@ -98,3 +98,4 @@
     }
   ]
 }
+
