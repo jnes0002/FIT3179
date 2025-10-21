@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Quarterly Aviation Fuel Sales in Australia (1993–2019)",
+  "width": 550,
+  "height": 350,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/fuel_sales_web.csv"
+  },
+  "transform": [
+    {
+      "calculate": "replace(datum['Aviation Turbine Fuel'], /[ ,]/g, '')",
+      "as": "TurbineClean"
+    },
+    {
+      "calculate": "replace(datum['Aviation Gasoline'], /[ ,]/g, '')",
+      "as": "GasolineClean"
+    },
+    {
+      "calculate": "toNumber(datum.TurbineClean)",
+      "as": "TurbineML"
+    },
+    {
+      "calculate": "toNumber(datum.GasolineClean)",
+      "as": "GasolineML"
+    },
+    {
+      "calculate": "datum.Year + ' ' + datum.Quarter",
+      "as": "QuarterLabel"
+    },
+    {
+      "calculate": "timeParse(datum.QuarterLabel, '%Y %B')",
+      "as": "QuarterDate"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "steelblue",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "field": "QuarterDate",
+          "type": "temporal",
+          "title": "Year",
+          "axis": { "labelAngle": -45 }
+        },
+        "y": {
+          "field": "TurbineML",
+          "type": "quantitative",
+          "title": "Turbine Fuel (ML)",
+          "scale": { "zero": false },
+          "axis": { "titleColor": "steelblue" }
+        },
+        "tooltip": [
+          { "field": "QuarterDate", "type": "temporal", "title": "Quarter" },
+          { "field": "TurbineML", "type": "quantitative", "title": "Turbine Fuel (ML)", "format": ".1f" }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "crimson",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "field": "QuarterDate",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "GasolineML",
+          "type": "quantitative",
+          "title": "Gasoline (ML)",
+          "scale": { "zero": false },
+          "axis": { "titleColor": "crimson" }
+        },
+        "tooltip": [
+          { "field": "QuarterDate", "type": "temporal", "title": "Quarter" },
+          { "field": "GasolineML", "type": "quantitative", "title": "Gasoline (ML)", "format": ".1f" }
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": { "y": "independent" }
+  }
+}
