@@ -5,7 +5,7 @@
   "width": 550,
   "height": 350,
   "data": {
-    "url": "https://raw.githubusercontent.com/jnes0002FIT3179/a2/A2/line_chart_1/data/total_arrivals_departures.csv"
+    "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/line_chart_1/data/total_arrivals_departures.csv"
   },
   "transform": [
     {
@@ -114,6 +114,7 @@
     }
   ]
 }
+
 
 
 
