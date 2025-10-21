@@ -13,7 +13,7 @@
       "lookup": "properties.STE_NAME16",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/main/W9_Homework/Short-term_visitor_arrivals.csv"
+          "url": "https://raw.githubusercontent.com/jnes0002/FIT3179/a2/A2/choropleth_map_1/data/STE_2016_AUST.json",
         },
         "key": "STATE",
         "fields": [
@@ -47,3 +47,4 @@
     ]
   }
 }
+
