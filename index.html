@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FIT3179 Dashboard</title>
+  <title>Australian Air Travel Insights</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -11,40 +11,146 @@
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
-      margin: 20px;
+      margin: 0;
+      color: black;
+    }
+    .main-container {
+      padding-left: 10%;
+      padding-right: 10%;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .section-description-box {
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      font-size: 1.1em;
+      color: black;
     }
     .vis-container {
       padding: 10px;
     }
-    h2 {
-      margin-bottom: 5px;
+    .placeholder {
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      min-height: 400px;
+      color: black;
+    }
+    .map-title {
+      font-size: 1.5em;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: black;
+    }
+    .map-description-box {
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: black;
     }
   </style>
 </head>
 <body>
 
-  <div class="pure-g">
-    <div class="pure-u-1-1">
-      <h2>Total Overseas Arrivals and Departures</h2>
-      <div id="vis1" class="vis-container"></div>
-    </div>
-  </div>
+  <div class="main-container">
 
-  <div class="pure-g">
-    <div class="pure-u-1-1">
-      <h2>Australian Airport Traffic Map</h2>
-      <div id="vis2" class="vis-container"></div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="section-title">Australian Air Travel Insights</div>
+        <div class="section-description-box">
+          This visualisation presents several idioms of Australia's aviation landscape, combining passenger movement, airport traffic, and fuel consumption trends. By visualizing both international and domestic travel patterns alongside fuel usage data, it highlights the evolving dynamics of air transport.
+        </div>
+      </div>
     </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="placeholder">
+          <h3>Overview of International Travel</h3>
+          <p>The amount of overseas travel drops to almost zero at the beginning of 2020, marking the onset of COVID-19 and the resulting travel restrictions. Additionally, a clear seasonal pattern emerges. Departures consistently peak in December, while arrivals peak in January. This reflects common vacation cycles and return periods across years.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="map-description-box">
+          <h3>Domestic Airport Traffic</h3>
+          <p>The symbol map shows that Australia's busiest airports in January 2009 have remained dominant through to the present day. The choropleth map reveals that Western Australia, Victoria, and New South Wales consistently attract the highest number of short-term visitors per capita, highlighting their role as key domestic travel hubs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis3" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="placeholder">
+          <h3>Fuel Sales Trends</h3>
+          <p>This chart compares quarterly sales of aviation turbine fuel and aviation gasoline in Australia. Turbine fuel, used in commercial jets, shows a steady upward trend. This reflects the growth in passenger and freight aviation. In contrast, aviation gasoline, used in smaller piston-engine aircraft, has declined over time due to a shift toward more efficient turbine-powered aircraft.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="section-description-box">
+          <h3>Data Sources and Attribution</h3>
+          <ul>
+            <li><strong>BITRE Aviation Fuel Sales:</strong> <a href="https://www.bitre.gov.au/statistics/aviation/av_fuel_sales" target="_blank">bitre.gov.au/statistics/aviation/av_fuel_sales</a></li>
+            <li><strong>ABS Population Estimates:</strong> <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/jun-2024" target="_blank">abs.gov.au/statistics/population/jun-2024</a></li>
+            <li><strong>BITRE Airport Traffic Data:</strong> <a href="https://www.bitre.gov.au/publications/ongoing/airport_traffic_data" target="_blank">bitre.gov.au/publications/ongoing/airport_traffic_data</a></li>
+            <li><strong>OurAirports Metadata:</strong> <a href="https://ourairports.com/countries/AU/airports.csv" target="_blank">ourairports.com/countries/AU/airports.csv</a></li>
+            <li><strong>ABS State Boundaries:</strong> <a href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument" target="_blank">abs.gov.au/DetailsPage/1270.0.55.001</a></li>
+            <li><strong>Author:</strong> Jayson Nestic</li>
+            <li><strong>Date:</strong> 22/10/25</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script type="text/javascript">
-    const specVis1 = "W10_Homework/line_chart_1/json/arrivals_departures_chart.json";
-    const specVis2 = "W10_Homework/symbol_map_1/json/airport_traffic_map.json";
+    const specVis1 = "line_chart_1/json/arrivals_departures_chart.json";
+    const specVis2 = "symbol_map_1/json/airport_traffic_map.json";
+    const specVis3 = "choropleth_map_1/json/arrivals_traffic_map.json";
+    const specVis4 = "line_chart_2/json/fuel_sales_chart.json";
 
     vegaEmbed('#vis1', specVis1, { actions: false });
     vegaEmbed('#vis2', specVis2, { actions: false });
+    vegaEmbed('#vis3', specVis3, { actions: false });
+    vegaEmbed('#vis4', specVis4, { actions: false });
   </script>
 
 </body>
 </html>
-
